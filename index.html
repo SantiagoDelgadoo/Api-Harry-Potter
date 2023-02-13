@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script> <!-- script de tailwind -->
+    <title>Harry Potter</title>
+</head>
+
+<body>
+    <div id="app" class="bg-center bg-no-repeat bg-cover bg-fixed"
+        style="background-image: url(https://wallpaperaccess.com/full/562430.jpg);">
+        <div class="flex justify-center items-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Harry_Potter_wordmark.svg/2180px-Harry_Potter_wordmark.svg.png"
+                class="w-60 h-60" alt="">
+        </div>
+        <div class="flex lg:justify-center border-black mb-24">
+            <input class="w-60 p-2 rounded-xl" type="text" placeholder="Buscar" v-model="nombre"
+                @keyup="filtrarPorNombre">
+        </div>
+        <main class="flex flex-wrap h-auto justify-center items-center gap-2">
+            <div class="w-60 h-120 bg-red-600 flex justify-center items-center flex-col mb-10 rounded-xl mb-26"
+                v-for="personaje in personajesFiltrados">
+                <h2 class="text-center lg:mt-4 lg:text-xl lg:font-bold text-white">{{personaje.name}}</h2>
+                <div class="flex lg:justify-center lg:items-center lg:mt-5">
+                    <img :src="personaje.image" class="h-96 object-cover" :alt="Personaje">
+                </div>
+                <div class="p-2">
+                    <p class="text-center text-white font-medium">Pertenece a la casa de {{personaje.house}}</p>
+                    <p class="text-center text-white font-medium" v-if="personaje.wizard">Puede hacer magia</p>
+                    <p class="text-center text-white font-medium" v-else="personaje.wizard">No puede hacer magia</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> <!-- script de vue -->
+
+
+
+
+    <script src="./main.js"></script> <!-- script de js -->
+</body>
+
+</html>
