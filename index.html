@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <div id="app" class="bg-center bg-no-repeat bg-cover bg-fixed"
+    <div id="app" class="bg-center bg-no-repeat bg-cover bg-fixed min-h-screen"
         style="background-image: url(https://images6.alphacoders.com/124/1247539.jpg);">
         <div class="flex justify-center items-center">
             <img src="https://media.discordapp.net/attachments/1019730194984091739/1074499856158175242/pngegg.png"
@@ -20,6 +20,13 @@
                 @keyup="filtrarPorNombre">
         </div>
         <main class="flex flex-wrap h-auto justify-center items-center gap-2">
+            <p class="text-gray-700 text-xl text-center font-medium" v-if="personajesFiltrados.length === 0">No se
+                encontro resultado en su busqueda.
+                <img src="https://thumbs.gfycat.com/ShadowyAliveIberianmidwifetoad-size_restricted.gif"
+                    class="w-90 h-90 mb-32 mt-6 rounded-3xl" alt="Harry triste">
+                
+            </p>
+            <p v-else="personajesFiltrados"></p>
             <div class="w-60 h-120 bg-gradient-to-r from-gray-900 to-transparent flex justify-center items-center flex-col mb-10 rounded-xl mb-26 mr-10 ml-10"
                 v-for="personaje in personajesFiltrados">
                 <h2 class="text-center lg:mt-4 lg:text-xl lg:font-bold text-white">{{personaje.name}}</h2>
