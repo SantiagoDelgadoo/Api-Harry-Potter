@@ -15,13 +15,13 @@
             <img src="https://media.discordapp.net/attachments/1019730194984091739/1074499856158175242/pngegg.png"
                 class="w-90 h-80 mt-16" alt="Logo Harry Potter">
         </div>
-        <div class="flex lg:justify-center border-black mb-24">
-            <input class="w-60 p-2 rounded-xl" type="text" placeholder="Buscar" v-model="nombre"
+        <div class="flex lg:justify-evenly lg:border-black lg:mb-24">
+            <input class="w-96 p-2 rounded-xl" type="text" placeholder="Buscar" v-model="nombre"
                 @keyup="filtrarPorNombre">
 
             <div v-for="casa in nombresDeCasas">
-                <label for="casa">{{casa}}</label>
-                <input type="checkbox" id="">
+                <label class="text-black font-medium mr-2" for="casa ? casa : 'No tiene casa'">{{casa ? casa : 'No tiene casa'}}</label>
+                <input type="checkbox" id="casa ? casa : 'No tiene casa'" value="casa ? casa : 'No tiene casa'">
             </div>
         </div>
         <main class="flex flex-wrap h-auto justify-center items-center gap-2">
