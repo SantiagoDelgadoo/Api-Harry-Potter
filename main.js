@@ -7,6 +7,8 @@ createApp({
       personajes: [],
       nombre: "",
       personajesFiltrados:[],
+      nombresDeCasas: [],
+      housesSeleccionadas: []
     }
   },
   created() {
@@ -15,6 +17,7 @@ createApp({
     .then(data =>{
         this.personajes = data
         this.personajesFiltrados = this.personajes
+        this.obtenerNombreDeCasas()
     })
 },
 mounted(){
@@ -25,7 +28,16 @@ mounted(){
      filtrarPorNombre(){
         this.personajesFiltrados = this.personajes.filter(personaje=>
             personaje.name.toLowerCase().includes(this.nombre.toLowerCase()))
+    },
+
+      obtenerNombreDeCasas(){
+        this.nombresDeCasas = this.personajesFiltrados.map(
+          personaje => personaje.house)
+      
+      this.nombresDeCasas = new Set (this.nombresDeCasas)
     }
+
+
   },
   computed(){
 
